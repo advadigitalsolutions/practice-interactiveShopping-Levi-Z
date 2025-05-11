@@ -1,0 +1,107 @@
+BASIC DOM ELEMENT CREATION NOTES
+
+1. Create an Element
+
+const variableName = document.createElement("tagName");
+
+This:
+ - Declares a variable
+ - Uses document.createElement() to make an HTML element in memory
+ - "tagName" is whatever element I want: "li", "button", "input", etc.
+
+"Blueprint:"
+
+const element = document.createElement("tagname")
+ 
+
+2. Give the element some text (optional)
+
+element.textContent = "Your Text Here";
+
+This:
+
+- Puts visible text inside things like:
+
+<button>Text</button>
+<span>Text</span>
+<li>Text</li>
+
+"Blueprint:"
+
+element.textContent = "Some visible label";
+
+
+3. Give the element some behavior (optional)
+
+element.addEventListener("eventType", function() {
+
+});
+
+This:
+
+- tells the element what to do when it's clicked or hovered over or whatever.
+
+"Blueprint":
+
+element.addEventListener("click", function() {
+})
+
+
+4. Insert the element into the pageXOffset
+parentElement.appendChild(element);
+
+This:
+
+- Takes the thing I built in the memory of the system and puts it onto the page.
+
+"Blueprint:"
+
+container.appendChild(element);
+
+
+5. Putting it all together - example:
+
+const editButton = document.createElement("button"); // Step 1
+editButton.textContent = "Edit";                     // Step 2
+editButton.addEventListener("click", function() {    // Step 3
+  console.log("Edit clicked");
+});
+newListItem.appendChild(editButton);                 // Step 4
+
+===============================================================
+
+To create an editable to-do list:
+
+1. Create elements with document.createElement()
+2. Store them in variables
+3. Set properties like .textContent or .value
+4. Attach behavior with .addEventListener()
+5. Append them to a parent element to show them on the page
+
+======
+appendChild() and insertBefore():
+These methods are used to insert elements into the DOM.
+
+https://www.w3schools.com/jsref/met_node_appendchild.asp
+
+https://www.w3schools.com/jsref/met_node_insertbefore.asp
+
+Event listener - to 'hear' button click:
+
+https://www.w3schools.com/jsref/met_element_addeventlistener.asp
+
+.textContent is used to get or set text inside a <span>
+or similar element
+
+.value is used for input fields like <input type="text">
+
+https://www.w3schools.com/jsref/prop_node_textcontent.asp
+https://www.w3schools.com/jsref/prop_text_value.asp
+
+querySelector() lets you find the first element that matches
+a CSS ReadableStreamDefaultController. Use when editing or
+replacing child elements inside a parent:
+
+https://www.w3schools.com/jsref/met_document_queryselector.asp
+
+
